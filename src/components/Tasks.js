@@ -13,6 +13,7 @@ class Tasks extends Component {
       tasks: []
     };
     this.loadTasks = this.loadTasks.bind(this);
+    this.removeAllTasks = this.removeAllTasks.bind(this);
   }
 
   async loadTasks() {
@@ -23,6 +24,17 @@ class Tasks extends Component {
 
   componentDidMount() {
     this.loadTasks();
+  }
+
+  async removeAllTasks() {
+    window.confirm('Are you sure you want to remove all tasks?');
+
+    this.state.tasks.filter(async (task) => {
+      if (task.done === true) {
+        await fetch(`http://localhost:3001/tasks/${task.id}`, { method: 'DELETE' });
+        this.loadTasks();
+      }
+    });
   }
 
   render() {
@@ -36,7 +48,7 @@ class Tasks extends Component {
         <Col xs={{ span: 8, offset: 2 }} className="tasks_list">
           <p className="title">Done</p>
           <List loadTasks={this.loadTasks} tasks={this.state.tasks.filter((task) => task.done == true)} />
-          <Button variant="red" className="float-right remove_tasks_btn">Remove all tasks</Button>
+          <Button variant="danger" className="float-right remove_tasks_btn" onClick={this.removeAllTasks}>Remove all tasks</Button>
         </Col>
       </Row>
     );
