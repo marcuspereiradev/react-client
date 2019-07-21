@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
-
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faCheckCircle, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
-
-import Header from './components/Header';
+import Container from 'react-bootstrap/Container'
 
 import './App.scss';
+import Tasks from './components/Tasks';
+import Header from './components/Header';
 
-library.add(faCheckCircle, faTrashAlt);
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faCheckCircle, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faCheckCircle, faTrashAlt)
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div>
         <Header />
+        <Container>
+          <Tasks />
+        </Container>
       </div>
     );
   }
