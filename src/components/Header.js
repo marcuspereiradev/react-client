@@ -1,20 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import Navbar from 'react-bootstrap/Navbar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-class Header extends Component {
-  render() {
-    return (
-      <div>
-        <Navbar>
-          <Navbar.Brand>
-            <FontAwesomeIcon icon='check-circle' size='lg' /> Task Finisher
+const Header = () => {
+  return (
+    <div>
+      <Navbar>
+        <Navbar.Brand>
+          <FontAwesomeIcon icon='check-circle' size='lg' /> Task Finisher
           </Navbar.Brand>
-        </Navbar>
-      </div>
-    )
-  }
-}
+      </Navbar>
+    </div>
+  )
+};
 
 export default Header;

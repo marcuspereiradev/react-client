@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import Container from 'react-bootstrap/Container'
 
-import './App.scss';
-import Tasks from './components/Tasks';
-import Header from './components/Header';
-
+import Container from 'react-bootstrap/Container';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faCheckCircle, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+
+import Header from './components/Header';
+import Tasks from './components/Tasks';
+
+import './App.scss';
 
 library.add(faCheckCircle, faTrashAlt)
 

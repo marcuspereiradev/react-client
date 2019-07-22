@@ -1,32 +1,22 @@
 import React, { Component } from 'react';
-import Row from 'react-bootstrap/Row';
+import ToDoListAPI from '../services/ToDoListAPI'
+
 import Card from 'react-bootstrap/Card';
 import Table from 'react-bootstrap/Table';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class List extends Component {
 
-  async checkTask(task) {
-    let form = { 'task': { 'done': 'true' } }
-    await fetch(`http://localhost:3001/tasks/${task.id}`,
-      {
-        method: 'PUT',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          task: { done: true }
-        })
-      }
-    )
+  checkTask = async (task) => {
+    await ToDoListAPI.fetchCheck(task);
 
     this.props.loadTasks();
   }
 
-  async deleteTask(task) {
+  deleteTask = async (task) => {
     if (window.confirm(`Are you sure you want to delete: "${task.title}"`)) {
-      await fetch(`http://localhost:3001/tasks/${task.id}`, { method: 'DELETE' });
+      await ToDoListAPI.fetchDelete(task);
+
       this.props.loadTasks();
     }
   }
@@ -43,7 +33,7 @@ class List extends Component {
                     <td className="col-md-10">{task.title}</td>
                     <td>
                       {
-                        task.done == false
+                        task.done === false
                           ? <a className="check" href="#">
                             <FontAwesomeIcon icon="check-circle" onClick={() => this.checkTask(task)} size='lg' />
                           </a>

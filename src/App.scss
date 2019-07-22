@@ -1,51 +1,59 @@
-$yellow: #F5DD16;
-$dark-grey: #7C7C7C;
-$light-grey: #BEBEBE;
-$red: #EE4525;
+$yellow: #f5dd16;
+$dark-grey: #7c7c7c;
+$light-grey: #bebebe;
+$red: #ee4525;
+$white: #fff;
 
-.navbar{
+.navbar {
   background-color: $dark-grey;
-  .navbar-brand{
-    color: $yellow !important;
+
+  .navbar-brand {
+    color: $yellow;
   }
 }
 
-.tasks_list{
+.tasks-list {
   margin-top: 40px;
-  .title{
-    font-size: 22px;
+
+  .title {
     color: $dark-grey;
+    font-size: 22px;
     font-weight: 600;
     margin-bottom: 4px;
   }
 
-  .create_task_btn{
+  .create-task-btn {
     background-color: $dark-grey;
     border-color: $dark-grey;
     font-weight: 500;
     margin-top: 10px;
   }
 
-  .remove_tasks_btn {
+  .remove-task-btn {
     margin-top: 10px;
   }
 
-  .card{
+  .card {
     background-color: $dark-grey;
-    table{
-      tbody > tr:nth-child(1) > td{
-        border-top: 0;
-      }
-      color: white;
+
+    table {
+      color: $white;
       font-weight: 500;
       margin-bottom: 5px;
 
-      .check{
+      tbody > tr {
+        &:nth-child(1) > td {
+          border-top: 0;
+        }
+      }
+
+      .check {
         color: $yellow;
         font-size: 15px;
       }
-      .delete{
-        color: white;
+
+      .delete {
+        color: $white;
       }
     }
   }
